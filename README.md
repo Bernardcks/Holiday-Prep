@@ -1,0 +1,1 @@
+This is my preparation to learn about full-stack development during the holidays
