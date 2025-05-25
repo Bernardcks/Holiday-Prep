@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Hello = (props) => {
   console.log(props)
   return (
@@ -9,7 +7,22 @@ const Hello = (props) => {
   );
 }
 
-const App = () => {
+const Hello2 = ({name, age}) => {
+  const bornYear = () => {
+    const yrNow = new Date().getFullYear();
+    return yrNow - age
+  }
+  return (
+    <>
+      <p>Hello {name}, {age}</p>
+      <p>You were born in {bornYear()}</p>
+    </>
+  )
+}
+
+
+const App = (props) => {
+  const {counter} = props;
   const now = new Date();
   const a = 10;
   const b = 20;
@@ -28,8 +41,10 @@ const App = () => {
       <Hello name = "WY" age = "25"/>
       <Hello name = "Butter" age = "3"/>
       <Hello name = "Toast" age = "2"/>
+      <Hello2 name = "Bern2" age = "27"/>
       <p>{friends[0].name}, {friends[0].age}</p>
       <p>{friends[1].name}, {friends[1].age}</p>
+      <div>{counter}</div>
     </>
   );
 }
