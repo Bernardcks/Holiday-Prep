@@ -1,5 +1,6 @@
+import { useState } from "react";
+
 const Hello = (props) => {
-  console.log(props)
   return (
     <div>
       <p>Hello {props.name}, you are {props.age} years old</p>
@@ -10,27 +11,33 @@ const Hello = (props) => {
 const Hello2 = ({name, age}) => {
   const bornYear = () => {
     const yrNow = new Date().getFullYear();
-    return yrNow - age
+    return yrNow - age;
   }
   return (
     <>
       <p>Hello {name}, {age}</p>
       <p>You were born in {bornYear()}</p>
     </>
-  )
+  );
 }
 
+const Display = ({counter}) => <div>{counter}</div>;
 
-const App = (props) => {
-  const {counter} = props;
+const Button = ({onClick, text}) => <button onClick={onClick}>{text}</button>;
+
+const App = () => {
+  const [counter, setCounter] = useState(0);
   const now = new Date();
   const a = 10;
   const b = 20;
-  console.log(now, a + b);
   const friends = [
     {name: 'Beter', age: 24},
     {name: 'Sahur', age: 223},
   ];
+
+  const increaseCounter = () => setCounter(counter + 1);
+  const decreaseCounter = () => setCounter(counter - 1);
+  const resetCounter = () => setCounter(0);
 
   return (
     <>
@@ -44,7 +51,11 @@ const App = (props) => {
       <Hello2 name = "Bern2" age = "27"/>
       <p>{friends[0].name}, {friends[0].age}</p>
       <p>{friends[1].name}, {friends[1].age}</p>
-      <div>{counter}</div>
+      <Display counter={counter}/>
+      <Button onClick={increaseCounter} text="Increase (+)"/>
+      <Button onClick={decreaseCounter} text="Decrease (-)"/>
+      <br />
+      <Button onClick={resetCounter} text="Reset (0)"/>
     </>
   );
 }
