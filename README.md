@@ -16,3 +16,6 @@ Hooks rules: Top level of function component, Same order every render, NOT insid
 
 Function that returns a function(WHY??): pass arguments to event handler, generate handlers dynamically, create closures
 
+DO NOT define components inside components
+
+React hydration warning(why so thirsty??); tr tags must be inside a thead/tbody/tfoot

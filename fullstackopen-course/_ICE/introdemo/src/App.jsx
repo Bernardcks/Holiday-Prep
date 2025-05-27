@@ -36,7 +36,7 @@ const History = (props) => {
   );
 };
 
-const Display = ({counter}) => <div>{counter}</div>;
+const Display = ({value}) => <div>{value}</div>;
 
 const Button = ({onClick, text}) => <button onClick={onClick}>{text}</button>;
 
@@ -86,19 +86,19 @@ const App = () => {
       <Hello2 name = "Bern2" age = "27"/>
       <p>{friends[0].name}, {friends[0].age}</p>
       <p>{friends[1].name}, {friends[1].age}</p>
-      <Display counter={counter}/>
+      <Display value={counter}/>
       <Button onClick={increaseCounter} text="Increase (+)"/>
       <Button onClick={decreaseCounter} text="Decrease (-)"/>
       <br />
       <Button onClick={resetCounter} text="Reset (0)"/>
       <h3>Left Right</h3>
       <History allClicks={allClicks}/>
-      <Display counter={total}/>
+      <Display value={total}/>
       <br />
-      <Display counter={clicks.left}/>
+      <Display value={clicks.left}/>
       <Button onClick={handleLeftClick} text="Left"/>
       <br />
-      <Display counter={clicks.right}/>
+      <Display value={clicks.right}/>
       <Button onClick={handleRightClick} text="Right"/>
       <br />
       <Button onClick={hellow('MIMI')} text="MIMI"/>
